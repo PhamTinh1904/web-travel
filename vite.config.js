@@ -7,5 +7,6 @@ export default defineConfig({
   esbuild: {
     
   },'.js': 'jsx',
+  base: "/vite-deploy/"
 
 })
