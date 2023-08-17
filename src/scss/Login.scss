@@ -1,0 +1,44 @@
+@import '../scss/variable.scss';
+
+.login__container {
+    @include breakpoint(xs){
+        display: block;
+    }
+
+    .login__img {
+        img {
+            width: 70%;
+            object-fit: contain;
+            margin: auto;
+        }
+    }
+    
+    .login__form {
+        padding: 50px;
+        @include breakpoint(md){
+            padding: 35px;
+        }
+
+        .user__img {
+            top: -9%;
+            left: 50%;
+            transform: translate(-50%, -9%);
+        }
+
+        input {
+            width: 100%;
+            padding: .5rem 1rem;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--heading-color);
+        }
+
+        .auth__btn {
+            background-color: var(--heading-color);
+            width: 100%;
+        }
+    }
+}
+

@@ -1,0 +1,71 @@
+@import "../../scss/variable.scss";
+
+.search__bar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: max-content;
+    border-radius: 99999px;   
+   
+  .form__group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+    @include breakpoint(md){
+      padding: 1rem 0;
+    }
+    span {
+        padding-right: 20px;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+    }
+
+    p{
+        margin: 0;
+    }
+
+    input{
+        outline: none;
+    }
+  }
+  .form__group-fast{
+    border-right: 2px solid;
+    @include breakpoint(md){
+      border-right: none;
+    }
+  }
+
+  .form__group-fast-mobile {
+    @include breakpoint(md){
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+
+    }
+  }
+
+  .search__btn {
+   background-color: var(--secondary-color);
+   border-radius: 10px;
+   border: none;
+   @include breakpoint(md){
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    border-radius: 99999px;
+   }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .search__bar {
+    border-radius: 8px;
+    width: 100%;
+  }
+  .search__bar form {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+
+}
+
+@include breakpoint(md){
+
+}

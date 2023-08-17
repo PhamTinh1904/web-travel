@@ -1,0 +1,13 @@
+.service__item{
+    border-bottom: 1px solid var(--secondary-color);
+    border-right: 1px solid var(--secondary-color);
+    .service__img {
+        width: 50px;
+        height: 50px;
+        background-color: var(--secondary-color);
+    }
+
+    .service__desc {
+        color: var(--text-color);
+    }
+}

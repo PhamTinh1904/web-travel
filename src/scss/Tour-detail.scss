@@ -1,0 +1,35 @@
+.tour__content {
+    .tour__info {
+        span {
+            color: var(--text-color);
+            
+        }
+
+        i {
+            color: var(--heading-color);
+            margin-right: 4px;
+        }
+    }
+
+    .tour__reviews {
+        .rating__group {
+            span{
+                i{
+                    color: var(--secondary-color);
+                }
+            }
+        }
+
+        .review__input {
+            input {
+                border: 1px solid var(--secondary-color);
+                
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            
+        }
+    }
+}
