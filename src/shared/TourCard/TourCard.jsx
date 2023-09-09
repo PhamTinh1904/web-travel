@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
 import "./tour-card.scss";
 import calculateAvgRating from "../../utils/avgRating";
-import img from '../../../'
 
 const TourCard = ({ tour }) => {
   const { _id, title, photo, city, price, featured, reviews } = tour;
@@ -17,7 +16,7 @@ const TourCard = ({ tour }) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img relative">
-          <img src={`../../../dist/assets/gallery-02-fc2e4210.jpg]`} alt="" />
+          <img src={`../src/assets/${photo}`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
               Featured
