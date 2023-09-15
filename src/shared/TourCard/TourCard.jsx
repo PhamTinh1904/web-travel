@@ -16,7 +16,7 @@ const TourCard = ({ tour }) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img relative">
-          <img src={`../assets/${photo}`} alt="" />
+          <img src={`../assets${photo}`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
               Featured
