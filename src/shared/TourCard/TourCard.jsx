@@ -9,14 +9,13 @@ import calculateAvgRating from "../../utils/avgRating";
 const TourCard = ({ tour }) => {
   const { _id, title, photo, city, price, featured, reviews } = tour;
 
-  const {totalRating, avgRating} = calculateAvgRating(reviews)
+  const { totalRating, avgRating } = calculateAvgRating(reviews);
 
-  
   return (
     <div className="tour__card">
       <Card>
         <div className="tour__img relative">
-          <img src={`../assets/gallery-03-00db2e7b.jpg`} alt="" />
+          <img src={`/src/assets${photo}`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
               Featured
@@ -37,8 +36,7 @@ const TourCard = ({ tour }) => {
           <span className="tour__rating text-sm">
             <FontAwesomeIcon className="start__icon" icon={faStar} />
             {avgRating === 0 ? null : avgRating}{" "}
-            {totalRating === 0 ? 'Not rated' : <span>({reviews.length})</span>}
-             
+            {totalRating === 0 ? "Not rated" : <span>({reviews.length})</span>}
           </span>
         </div>
         <h5 className="tour__title mb-2">

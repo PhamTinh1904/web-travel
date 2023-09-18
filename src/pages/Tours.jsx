@@ -9,6 +9,7 @@ import { Col, Container, Row } from "reactstrap";
 import axios from "../axios";
 import useFetch from "../hooks/useFetch";
 import { REACT_APP_BACKEND_URL } from "../utils/config";
+import ReactLoading from 'react-loading';
 
 const Tours = () => {
   const [pageCount, setPageCount] = useState(0);
@@ -65,8 +66,8 @@ const Tours = () => {
       </section>
       <section className="pt-0">
         <Container>
-          {loading && <h4 className=" text-center">Loading............</h4>}
-          {error && <h4 className=" text-center">Loading.............</h4>}
+          {loading | error  && <ReactLoading className="flex justify-center items-start m-auto" type="spin" color="#333" height={'5%'} width={'5%'}/>}
+          
           {!loading && !error && (
             <Row>
               {tours.map((tour) => (

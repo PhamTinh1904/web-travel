@@ -63,10 +63,10 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faLocationDot} />
             </span>
             <div>
-              <p>Location</p>
+              <p>Distance</p>
               <input
                 type="text"
-                placeholder="Where are going?"
+                placeholder="Distance k/m"
                 ref={distanceRef}
               />
             </div>
@@ -76,10 +76,10 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faLocationDot} />
             </span>
             <div>
-              <p>Location</p>
+              <p>Max people</p>
               <input
                 type="text"
-                placeholder="Where are going?"
+                placeholder="0"
                 ref={maxGroupSizeRef}
               />
             </div>

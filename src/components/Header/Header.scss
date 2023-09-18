@@ -6,7 +6,12 @@
     min-width: 200px;
     top: 100%;
     border-top: 1px solid var(--text-color);
+    z-index: 99999;
     li {
+      :hover {
+        color: #000;
+      }
+      line-height: 1.5;
       padding: 8px 16px;
       a {
         text-decoration: none;
@@ -70,6 +75,8 @@
   .show__menu {
     display: block;
   }
+
+
 
 
 }

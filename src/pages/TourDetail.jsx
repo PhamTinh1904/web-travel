@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import "../scss/Tour-detail.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../axios";
@@ -11,6 +11,7 @@ import avatar from "../assets/tour-images/avatar.jpg";
 import Booking from "../components/Booking/Booking";
 import { AuthContext } from "../context/AuthContext";
 
+
 const ToursDetail = () => {
   const [tour, setTour] = useState([]);
   const { id } = useParams();
@@ -19,6 +20,7 @@ const ToursDetail = () => {
   const [TourRating, setTourRating] = useState(0);
   const [apiCallFinished, setApiCallFinished] = useState(false);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -77,6 +79,8 @@ const ToursDetail = () => {
         rating: TourRating,
       };
       const res = await axios.post(`/review/${id}`, reviewObj);
+      navigate(0)
+      
     } catch (error) {
       alert(error.message);
     }
