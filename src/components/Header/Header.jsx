@@ -92,16 +92,7 @@ const Header = () => {
                     />
                     <p className=" mb-0">{user.userName}</p>
 
-                    <ul className="user__menu absolute left-0 pl-0 mt-2 bg-white shadow-md">
-                    <li><Link>Cập nhật thông tin</Link></li>
-                      <li><Link>Cài đặt</Link></li>
-                      <li>
-                        {" "}
-                        <Button className="btn btn-dark" onClick={logout}>
-                          Logout
-                        </Button>
-                      </li>
-                    </ul>
+                    
                   </div>
                 </>
               ) : (

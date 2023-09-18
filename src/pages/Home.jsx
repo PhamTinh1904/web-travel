@@ -18,25 +18,30 @@ import axios from "../axios";
 
 const Home = () => {
   const [tours, setTours] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     axios
       .get(`/tours`)
       .then((res) => {
+        setIsLoading(true);
         setTours(res.result.data);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
-  useEffect(()=>{
-    tours.map((tour, index) =>(
-      console.log
-    ))
-  },[tours])
+  useEffect(() => {
+    tours.map((tour, index) => console.log);
+  }, [tours]);
 
-  return (
+  return isLoading ? (
+    <div>Loaading...</div>
+  ) : (
     <>
       <section>
         <div className="container">
