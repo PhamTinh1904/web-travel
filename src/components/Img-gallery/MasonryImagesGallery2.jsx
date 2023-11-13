@@ -2,9 +2,9 @@ import React from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import galleries from "./galleryImages";
 
-const MasonryImagesGallery = () => {
+const MasonryImagesGallery2 = () => {
   return (
-    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 3, 992: 4 }}>
+    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 3, 992: 5}}>
       <Masonry gutter="1rem">
         {galleries.map((item, index) => (
           <div className="relative opacity-70">
@@ -22,4 +22,4 @@ const MasonryImagesGallery = () => {
   );
 };
 
-export default MasonryImagesGallery;
+export default MasonryImagesGallery2;

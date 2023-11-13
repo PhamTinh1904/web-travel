@@ -10,6 +10,10 @@ import {} from "@fortawesome/free-solid-svg-icons";
 import avatar from "../assets/tour-images/avatar.jpg";
 import Booking from "../components/Booking/Booking";
 import { AuthContext } from "../context/AuthContext";
+import Rating from "../components/Rating/RatingReviews";
+import RatingReviews from "../components/Rating/RatingReviews";
+import ScheduleTour from "../shared/Schedule/ScheduleTour";
+
 
 
 const ToursDetail = () => {
@@ -21,6 +25,7 @@ const ToursDetail = () => {
   const [apiCallFinished, setApiCallFinished] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
+
 
   useEffect(() => {
     axios
@@ -135,9 +140,9 @@ const ToursDetail = () => {
 
                 <div className="tour__reviews mt-16 border-1 border-colorText p-10 rounded-lg">
                   <h4>Reviews ( {reviews.length} reviews)</h4>
-
                   <Form onSubmit={submitHandler}>
-                    <div className="flex items-center gap-3 mb-6 rating__group">
+                  <RatingReviews rating={TourRating} onChange={setTourRating}/>
+                    {/* <div className="flex items-center gap-3 mb-6 rating__group">
                       <span onClick={() => setTourRating(1)}>
                         1 <i className="ri-star-fill"></i>
                       </span>
@@ -153,7 +158,7 @@ const ToursDetail = () => {
                       <span onClick={() => setTourRating(5)}>
                         5 <i className="ri-star-fill"></i>
                       </span>
-                    </div>
+                    </div> */}
 
                     <div className="review__input flex items-center relative">
                       <input
@@ -204,6 +209,8 @@ const ToursDetail = () => {
                     ))}
                   </ListGroup>
                 </div>
+
+                <ScheduleTour tour={tour}/>
               </div>
             </Col>
             <Col lg="4">

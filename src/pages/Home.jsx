@@ -16,6 +16,7 @@ import Testimonial from "../components/Testimonial/Testimonial";
 import NewsLetter from "../shared/NewsLetter/NewsLetter";
 import axios from "../axios";
 import ReactLoading from "react-loading";
+import MasonryImagesGallery2 from "../components/Img-gallery/MasonryImagesGallery2";
 
 const Home = () => {
   const [tours, setTours] = useState([]);
@@ -165,11 +166,24 @@ const Home = () => {
             <Container>
               <Row>
                 <Col lg="12">
-                  <Subtitle subtitle={"Gallery"} />
+                  <Subtitle subtitle={"Du lịch nội địa"} />
                   <h2 className=" mb-4">Visit our customers tours gallery</h2>
                 </Col>
                 <Col lg="12">
                   <MasonryImagesGallery />
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          <section id="gallery">
+            <Container>
+              <Row>
+                <Col lg="12">
+                  <Subtitle subtitle={"Du lịch nước ngoài"} />
+                  <h2 className=" mb-4">Visit our customers tours gallery</h2>
+                </Col>
+                <Col lg="12">
+                  <MasonryImagesGallery2 />
                 </Col>
               </Row>
             </Container>

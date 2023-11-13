@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^5.14.17",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.5",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "js-cookie": "^3.0.5",
@@ -25,10 +29,12 @@
     "react-responsive-masonry": "^2.1.7",
     "react-router-dom": "^6.14.1",
     "react-slick": "^0.29.0",
+    "react-star-ratings": "^2.3.0",
     "reactstrap": "^9.2.0",
     "remixicon": "^3.4.0",
     "sass": "^1.63.6",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

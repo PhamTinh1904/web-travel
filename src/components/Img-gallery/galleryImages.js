@@ -16,4 +16,36 @@ const galleryImages = [
   galleryImg07,
 ];
 
-export default galleryImages
+const galleris = [
+  {
+    img: galleryImg01,
+    title: "Phú Quốc"
+  },
+  {
+    img: galleryImg02,
+    title: "Phú Yên"
+  },
+  {
+    img: galleryImg03,
+    title: "Quy Nhơn"
+  },
+  {
+    img: galleryImg04,
+    title: "Vũng Tàu"
+  },
+  {
+    img: galleryImg05,
+    title: "Phan Thiết"
+  },
+  {
+    img: galleryImg06,
+    title: "Nha Trang"
+  },
+  {
+    img: galleryImg07,
+    title: "Đà lạt"
+  },
+
+];
+
+export default galleris
