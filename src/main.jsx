@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthContextProvider>
       <Router>
         <App />
-      </Router>
+      </Router>       
     </AuthContextProvider>
   </React.StrictMode>
 );

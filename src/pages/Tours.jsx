@@ -9,7 +9,7 @@ import { Col, Container, Row } from "reactstrap";
 import axios from "../axios";
 import useFetch from "../hooks/useFetch";
 import { REACT_APP_BACKEND_URL } from "../utils/config";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 
 const Tours = () => {
   const [pageCount, setPageCount] = useState(0);
@@ -39,15 +39,19 @@ const Tours = () => {
   //     });
   // }, []);
 
+ 
+
   const {
     data: tours,
     loading,
     error,
   } = useFetch(`${REACT_APP_BACKEND_URL}/tours?page=${page}`);
 
- 
+  const { data: tourCount } = useFetch(
+    `${REACT_APP_BACKEND_URL}/tours/search/getToursCount`
+  );
 
-  const {data: tourCount} = useFetch(`${REACT_APP_BACKEND_URL}/tours/search/getToursCount`);
+
 
   useEffect(() => {
     const pages = Math.ceil(tourCount / 8);
@@ -66,8 +70,15 @@ const Tours = () => {
       </section>
       <section className="pt-0">
         <Container>
-          {loading | error  && <ReactLoading className="flex justify-center items-start m-auto" type="spin" color="#333" height={'5%'} width={'5%'}/>}
-          
+          {loading | error && (
+            <ReactLoading
+              className="flex justify-center items-start m-auto"
+              type="spin"
+              color="#333"
+              height={"5%"}
+              width={"5%"}
+            />
+          )}
           {!loading && !error && (
             <Row>
               {tours.map((tour) => (

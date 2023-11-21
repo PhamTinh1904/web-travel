@@ -13,8 +13,7 @@ import { AuthContext } from "../context/AuthContext";
 import Rating from "../components/Rating/RatingReviews";
 import RatingReviews from "../components/Rating/RatingReviews";
 import ScheduleTour from "../shared/Schedule/ScheduleTour";
-
-
+import { formattedPrice } from "../utils/formatPriceVi";
 
 const ToursDetail = () => {
   const [tour, setTour] = useState([]);
@@ -22,10 +21,15 @@ const ToursDetail = () => {
 
   const reviewMsgRef = useRef("");
   const [TourRating, setTourRating] = useState(0);
+
   const [apiCallFinished, setApiCallFinished] = useState(false);
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
+  const handleRatingChange = (newValue) => {
+    // Nhận giá trị mới từ RatingReviews và sử dụng nó ở đây
+    setTourRating(newValue);
+  };
 
   useEffect(() => {
     axios
@@ -53,8 +57,9 @@ const ToursDetail = () => {
   }
 
   const {
+    _id,
     title,
-    city,
+    startGate,
     address,
     distance,
     photo,
@@ -84,12 +89,16 @@ const ToursDetail = () => {
         rating: TourRating,
       };
       const res = await axios.post(`/review/${id}`, reviewObj);
-      navigate(0)
-      
+      navigate(0);
     } catch (error) {
       alert(error.message);
     }
   };
+
+  // const formattedPrice = new Intl.NumberFormat('vi-VN', {
+  //   style: 'currency',
+  //   currency: 'VND',
+  // }).format(price);
 
   return (
     <>
@@ -98,7 +107,10 @@ const ToursDetail = () => {
           <Row>
             <Col lg="8">
               <div className="tour__content">
-                <img src={photo} alt="" />
+                <img
+                  src="https://res.cloudinary.com/dmjyrnybv/image/upload/v1694162206/tbmobhvclhpvys76lc8y.jpg"
+                  alt=""
+                />
 
                 <div className="tour__info mt-4 border-1 pt-4 pb-20 px-4 border-secondary rounded-lg">
                   <h2>{title}</h2>
@@ -120,19 +132,24 @@ const ToursDetail = () => {
                       <i className="ri-map-pin-fill"></i> {address}
                     </span>
                   </div>
-                  <div className="tour__extra-details flex gap-5 mt-4">
-                    <span>
+                  <div className="tour__extra-details flex gap-5 mt-4 mb-3">
+                    <h5>
                       <i className="ri-map-pin-2-fill"></i>
-                      {city}
-                    </span>
-                    <span>
-                      <i className="ri-money-dollar-circle-line"></i>${price} /
-                      per person
-                    </span>
-                    <span>
+                      Khởi hành tại:{` `}
+                      {startGate}
+                    </h5>
+
+                    <h5>
                       <i className="ri-group-line"></i>
                       {maxGroupSize}
-                    </span>
+                    </h5>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <h5>
+                      <i className="ri-money-dollar-circle-line"></i> Giá vé trẻ
+                      em (từ 6 tuổi đến 11 tuổi): {formattedPrice(price * 0.3)}{" "}
+                      / trẻ
+                    </h5>
                   </div>
                   <h5 className="pt-5">Descripction</h5>
                   <p className=" text-colorText leading-8">{desc}</p>
@@ -141,7 +158,10 @@ const ToursDetail = () => {
                 <div className="tour__reviews mt-16 border-1 border-colorText p-10 rounded-lg">
                   <h4>Reviews ( {reviews.length} reviews)</h4>
                   <Form onSubmit={submitHandler}>
-                  <RatingReviews rating={TourRating} onChange={setTourRating}/>
+                    <RatingReviews
+                      initialRating={TourRating}
+                      onRatingChange={handleRatingChange}
+                    />
                     {/* <div className="flex items-center gap-3 mb-6 rating__group">
                       <span onClick={() => setTourRating(1)}>
                         1 <i className="ri-star-fill"></i>
@@ -210,7 +230,7 @@ const ToursDetail = () => {
                   </ListGroup>
                 </div>
 
-                <ScheduleTour tour={tour}/>
+                <ScheduleTour tour={tour} />
               </div>
             </Col>
             <Col lg="4">

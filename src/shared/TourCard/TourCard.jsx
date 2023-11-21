@@ -1,21 +1,33 @@
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationDot,
+  faStar,
+  faCalendar,
+  faUser,
+  faClock
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
 import "./tour-card.scss";
 import calculateAvgRating from "../../utils/avgRating";
+import {format} from 'date-fns'
 
 const TourCard = ({ tour }) => {
-  const { _id, title, photo, city, price, featured, reviews } = tour;
+  const { _id, title, photo, startGate, price, featured, reviews, departureDay, maxGroupSize, night, day} = tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
+
+  const formattedPrice = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  }).format(price);
 
   return (
     <div className="tour__card">
       <Card>
         <div className="tour__img relative">
-          <img src={`../../public${photo}`} alt="" />
+          <img src={`https://res.cloudinary.com/dmjyrnybv/image/upload/v1694162206/tbmobhvclhpvys76lc8y.jpg`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
               Featured
@@ -31,7 +43,7 @@ const TourCard = ({ tour }) => {
               className="location__icon px-1"
               icon={faLocationDot}
             />
-            {city}
+            {startGate}
           </span>
           <span className="tour__rating text-sm">
             <FontAwesomeIcon className="start__icon" icon={faStar} />
@@ -44,10 +56,39 @@ const TourCard = ({ tour }) => {
             {title}
           </Link>
         </h5>
+        <p>
+          <FontAwesomeIcon
+            className="location__icon px-1"
+            icon={faLocationDot}
+          />
+          Nơi khởi hành: {startGate}
+        </p>
+        <p>
+          <FontAwesomeIcon
+            className="location__icon px-1"
+            icon={faCalendar}
+          />
+          Ngày khởi hành: {format(new Date(departureDay), 'yyyy-MM-dd')}
+        </p>
+        <p>
+          <FontAwesomeIcon
+            className="location__icon px-1"
+            icon={faClock}
+          />
+          Thời gian: {day} ngày {night} đêm
+        </p>
+        <p>
+          <FontAwesomeIcon
+            className="location__icon px-1"
+            icon={faUser}
+          />
+          Số chỗ: {maxGroupSize}
+        </p>
+
         <div className="card__bottom flex justify-between items-center pb-1">
           <h5 className=" text-base">
-            ${price}{" "}
-            <span className=" text-sm text-slate-950"> /per person</span>
+            {formattedPrice}
+            <span className=" text-sm text-slate-950"> /người</span>
           </h5>
           <button className="booking__btn">
             <Link to={`/tour/${_id}`}>Book Now</Link>

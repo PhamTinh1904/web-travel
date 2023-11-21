@@ -113,6 +113,9 @@ const Header = () => {
                       <ul className="user__menu absolute left-0 pl-0 mt-2 bg-white shadow-md">
                         <li className=" font-bold">{user.userName}</li>
                         <li>
+                          <Link to={'/trips'}>Kì nghĩ của tôi</Link>
+                        </li>
+                        <li>
                           <Link>Cập nhật thông tin</Link>
                         </li>
                         <li>
