@@ -9,6 +9,7 @@ import Register from '../pages/Register'
 import ThankYou from '../pages/ThankYou'
 import DashBoard from '../dashboard/DashBoard'
 import Trips from '../pages/Trips'
+import ToursByCategory from '../pages/ToursByCategory'
 
 
 const Routers = () => {
@@ -18,6 +19,8 @@ const Routers = () => {
         <Route path='/home' element={<Home/>}/>
         <Route path='/tours' element={<Tours/>}/>
         <Route path='/tour/:id' element={<TourDetail/>}/>
+        <Route path='/tours/:category' element={<ToursByCategory/>}/>
+
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/tours/search' element={<SearchResult/>}/>

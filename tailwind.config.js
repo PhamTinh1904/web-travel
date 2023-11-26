@@ -7,9 +7,10 @@ export default {
   theme: {
     colors: {
       ...require('tailwindcss/colors'),
-      secondaryy: '#faa935',
+      secondaryy: '#f97150',
       colorText: '#6e7074',
-      colorBorder: 'rgba(229, 231, 235)'
+      colorBorder: 'rgba(229, 231, 235)',
+      Primary: '#f97150'
     },
     extend: {},
   },

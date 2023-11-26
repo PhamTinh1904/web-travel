@@ -3,7 +3,7 @@
 
 :root {
   --primary-color: #ff7e01;
-  --secondary-color: #faa935;
+  --secondary-color: #f97150;
   --heading-color: #0b2727;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
@@ -96,4 +96,8 @@ ul {
   .btn-dark {
     padding: 0.2rem 1.1rem !important;
   }
+}
+
+.rdrMonth {
+  width: 100%;
 }

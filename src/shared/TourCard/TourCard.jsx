@@ -12,9 +12,10 @@ import { Card, CardBody } from "reactstrap";
 import "./tour-card.scss";
 import calculateAvgRating from "../../utils/avgRating";
 import {format} from 'date-fns'
+import { faStarHalf } from "@fortawesome/free-regular-svg-icons";
 
 const TourCard = ({ tour }) => {
-  const { _id, title, photo, startGate, price, featured, reviews, departureDay, maxGroupSize, night, day} = tour;
+  const { _id, title, photo,location, startGate, price, featured, reviews, departureDay, maxGroupSize, night, day} = tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
@@ -43,7 +44,7 @@ const TourCard = ({ tour }) => {
               className="location__icon px-1"
               icon={faLocationDot}
             />
-            {startGate}
+            {location}
           </span>
           <span className="tour__rating text-sm">
             <FontAwesomeIcon className="start__icon" icon={faStar} />
@@ -68,7 +69,7 @@ const TourCard = ({ tour }) => {
             className="location__icon px-1"
             icon={faCalendar}
           />
-          Ngày khởi hành: {format(new Date(departureDay), 'yyyy-MM-dd')}
+          Ngày khởi hành: {departureDay ? format(new Date(departureDay), 'yyyy-MM-dd'): ""}
         </p>
         <p>
           <FontAwesomeIcon

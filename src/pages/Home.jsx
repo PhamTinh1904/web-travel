@@ -61,12 +61,12 @@ const Home = () => {
                 <Col lg="6">
                   <div className="hero__content">
                     <div className="hero__subtitle flex items-center">
-                      <Subtitle subtitle={"Know Before You Go"} />
+                      <Subtitle subtitle={"Biết trước khi bạn đi?"} />
                       <img className=" h-10" src={worldImg} alt="" />
                     </div>
                     <h1>
-                      Tralveling opens the door to creating
-                      <span className="highlight"> memories</span>
+                    Du lịch giúp mở ra  <span className="highlight"> cơ hội</span> và tạo ra những 
+                      <span className="highlight"> kỷ niệm</span>
                     </h1>
                     <p className="leading-loose">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -113,8 +113,8 @@ const Home = () => {
           </section>
           <section id="featured__tour">
             <Container>
-              <Subtitle subtitle={"Explore"} />
-              <h2 className="title font-medium text-4xl">Our featured tours</h2>
+              <Subtitle subtitle={"Khám phá"} />
+              <h2 className="title font-medium text-4xl">Các tour nổi bật</h2>
               <Row>
                 <FeaturedToursList />
               </Row>
@@ -167,7 +167,7 @@ const Home = () => {
               <Row>
                 <Col lg="12">
                   <Subtitle subtitle={"Du lịch nội địa"} />
-                  <h2 className=" mb-4">Visit our customers tours gallery</h2>
+                  <h2 className=" mb-4">Hãy đồng hành cùng chúng tôi để khám phá những địa điểm thú vị trên cả nước</h2>
                 </Col>
                 <Col lg="12">
                   <MasonryImagesGallery />
@@ -192,8 +192,7 @@ const Home = () => {
             <Container>
               <Row>
                 <Col lg="12">
-                  <Subtitle subtitle={"Fans Love"} />
-                  <h2 className=" mt-4">What our fans saying abou us</h2>
+                  <Subtitle subtitle={"Phản hồi từ khách hàng"} />
                 </Col>
                 <Col lg="12">
                   <Testimonial />

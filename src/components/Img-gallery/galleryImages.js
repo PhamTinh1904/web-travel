@@ -18,33 +18,38 @@ const galleryImages = [
 
 const galleris = [
   {
+    url: "bien",
     img: galleryImg01,
-    title: "Phú Quốc"
+    title: "Biển"
   },
   {
+    url: "tay-nguyen",
     img: galleryImg02,
-    title: "Phú Yên"
+    title: "Tây Nguyên"
   },
   {
+    url: "mien-tay",
     img: galleryImg03,
-    title: "Quy Nhơn"
+    title: "Miền Tây"
   },
   {
+    url: "tay-bac",
     img: galleryImg04,
-    title: "Vũng Tàu"
+    title: "Tây Bắc"
   },
   {
+    url: "cam-trai",
     img: galleryImg05,
-    title: "Phan Thiết"
+    title: "Cắm trại"
   },
-  {
-    img: galleryImg06,
-    title: "Nha Trang"
-  },
-  {
-    img: galleryImg07,
-    title: "Đà lạt"
-  },
+  // {
+  //   img: galleryImg06,
+  //   title: "Nha Trang"
+  // },
+  // {
+  //   img: galleryImg07,
+  //   title: "Đà lạt"
+  // },
 
 ];
 

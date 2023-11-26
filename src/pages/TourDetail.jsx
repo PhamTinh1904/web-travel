@@ -5,8 +5,18 @@ import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../axios";
 import calculateAvgRating from "../utils/avgRating";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
-import {} from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendar,
+  faClock,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faLocation,
+  faStar,
+  faLocationDot,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
 import avatar from "../assets/tour-images/avatar.jpg";
 import Booking from "../components/Booking/Booking";
 import { AuthContext } from "../context/AuthContext";
@@ -14,6 +24,7 @@ import Rating from "../components/Rating/RatingReviews";
 import RatingReviews from "../components/Rating/RatingReviews";
 import ScheduleTour from "../shared/Schedule/ScheduleTour";
 import { formattedPrice } from "../utils/formatPriceVi";
+import { format } from "date-fns-tz";
 
 const ToursDetail = () => {
   const [tour, setTour] = useState([]);
@@ -65,8 +76,12 @@ const ToursDetail = () => {
     photo,
     desc,
     price,
+    day,
     maxGroupSize,
     reviews,
+    departureDay,
+    night,
+    lichtrinh,
   } = tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
@@ -112,27 +127,77 @@ const ToursDetail = () => {
                   alt=""
                 />
 
-                <div className="tour__info mt-4 border-1 pt-4 pb-20 px-4 border-secondary rounded-lg">
-                  <h2>{title}</h2>
-                  <div className="flex items-center gap-5">
-                    <span className="tour__rating text-sm flex items-center gap-1">
+                <div className="tour__info mt-4 border-y-[1px] pt-4 pb-20 px-4 border-[#e1e1e1] ">
+                  <h1 className=" lg:text-4xl font-bold">{title}</h1>
+                  {/* Reviews */}
+                  <div className="flex items-center gap-5 my-4">
+                    <span className="tour__rating text-[16px] flex items-center gap-1">
                       <FontAwesomeIcon
-                        className="start__icon text-secondaryy"
+                        className="start__icon text-yellow-400"
                         icon={faStar}
                       />
                       {calculateAvgRating === 0 ? null : avgRating}{" "}
+                      {console.log(totalRating)}
                       {totalRating === 0 ? (
                         "Not rated"
                       ) : (
                         <span>({reviews.length})</span>
                       )}
                     </span>
-
-                    <span>
-                      <i className="ri-map-pin-fill"></i> {address}
-                    </span>
                   </div>
-                  <div className="tour__extra-details flex gap-5 mt-4 mb-3">
+                  {/* Thông tin tour */}
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-[1.5rem] lg:gap-[6rem]">
+                    <div className="flex flex-col gap-4">
+                      <span className="text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faSun}
+                        />
+                        {day} Ngày
+                      </span>
+                      <span className=" text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faMoon}
+                        />
+                        {night} Đêm
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <span className="text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faUserGroup}
+                        />
+                        Số người tối đa: {maxGroupSize}
+                      </span>
+                      <span className="text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faCalendar}
+                        />
+                        Khởi hành:{" "}
+                        {format(new Date(departureDay), "yyyy-MM-dd")}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <span className="text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faClock}
+                        />
+                        {day} Ngày
+                      </span>
+                      <span className="text-[18px]">
+                        <FontAwesomeIcon
+                          className="mr-3 text-[#f97454]"
+                          icon={faLocationDot}
+                        />
+                        Điểm đón: {startGate}
+                      </span>
+                    </div>
+                  </div>
+                  {/* <div className="tour__extra-details flex gap-5 mt-4 mb-3">
                     <h5>
                       <i className="ri-map-pin-2-fill"></i>
                       Khởi hành tại:{` `}
@@ -150,10 +215,13 @@ const ToursDetail = () => {
                       em (từ 6 tuổi đến 11 tuổi): {formattedPrice(price * 0.3)}{" "}
                       / trẻ
                     </h5>
-                  </div>
-                  <h5 className="pt-5">Descripction</h5>
-                  <p className=" text-colorText leading-8">{desc}</p>
+                  </div> */}
                 </div>
+                <div className="p-4">
+                  <p className="text-[18px] text-colorText leading-8">{desc}</p>
+                </div>
+
+                <ScheduleTour schedules={lichtrinh} />
 
                 <div className="tour__reviews mt-16 border-1 border-colorText p-10 rounded-lg">
                   <h4>Reviews ( {reviews.length} reviews)</h4>
@@ -229,8 +297,6 @@ const ToursDetail = () => {
                     ))}
                   </ListGroup>
                 </div>
-
-                <ScheduleTour tour={tour} />
               </div>
             </Col>
             <Col lg="4">

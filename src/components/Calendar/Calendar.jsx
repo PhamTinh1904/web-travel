@@ -5,9 +5,7 @@ import { Calendar } from "react-date-range";
 import { useState } from "react";
 import { useMemo } from "react";
 import { addDays, format } from "date-fns";
-import {enUS} from 'date-fns/locale'
-
-
+import { enUS } from "date-fns/locale";
 
 import { utcToZonedTime, zonedTimeToUtc } from "date-fns-tz";
 
@@ -24,7 +22,6 @@ const CalendarBooking = ({ onChangeDate, initalDate }) => {
 
   const minDate = useMemo(() => addDays(new Date(), 6), []);
 
-
   return (
     <Calendar
       date={state}
@@ -32,7 +29,8 @@ const CalendarBooking = ({ onChangeDate, initalDate }) => {
         handleDateChange(newValue);
       }}
       minDate={minDate}
-    locale={enUS}
+      locale={enUS}
+      s
     />
   );
 };
