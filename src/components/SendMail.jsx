@@ -11,7 +11,10 @@ const Invoice = () => {
   const handleSendEmail = () => {
     const { to, subject, text } = emailData;
 
-    axios.post('https://api.sendgrid.com/v3/mail/send', {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy server URL
+    const apiUrl = 'https://api.sendgrid.com/v3/mail/send'; // API URL
+
+    axios.post(proxyUrl + apiUrl, {
       personalizations: [
         {
           to: [{ email: to }],
@@ -22,7 +25,6 @@ const Invoice = () => {
       content: [{ type: 'text/plain', value: text }],
     }, {
       headers: {
-        Authorization: `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`,
         'Content-Type': 'application/json',
       },
     })
