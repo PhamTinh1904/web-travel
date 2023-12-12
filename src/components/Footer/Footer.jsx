@@ -9,15 +9,15 @@ import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 const quickLinks = [
   {
     path: "#gallery",
-    display: "Gallery",
+    display: "Điều khoản sử dụng",
   },
   {
     path: "/login",
-    display: "Login",
+    display: "Điều khoản thanh toán",
   },
   {
     path: "/register",
-    display: "Register",
+    display: "Chính sách bảo mật",
   },
 ];
 
@@ -76,7 +76,7 @@ const Footer = () => {
             </ul>
           </Col>
           <Col lg="3">
-            <h5>Discover</h5>
+            <h5>Liên kết</h5>
             <ListGroup className="discover__links p-0">
               {discover.map((item, index) => (
                 <ListGroupItem className="discover__item py-3" key={index}>
@@ -86,7 +86,7 @@ const Footer = () => {
             </ListGroup>
           </Col>
           <Col lg="3">
-            <h5>Quick Links</h5>
+            <h5>Điều khoản</h5>
             <ListGroup className="discover__links p-0">
               {quickLinks.map((item, index) => (
                 <ListGroupItem className="discover__item py-3" key={index}>
@@ -96,16 +96,16 @@ const Footer = () => {
             </ListGroup>
           </Col>
           <Col lg="3">
-            <h5>Contact</h5>
+            <h5>Liên hệ</h5>
             <ListGroup className="discover__links contact__list p-0">
               <ListGroupItem>
                 <h6 className="">
                   <span>
                     <FontAwesomeIcon icon={faLocationDot} />
                   </span>
-                  Address:
+                  Địa chỉ:
                 </h6>
-                <p>Sylhet, Bangladesh</p>
+                <p>Tân Phú, Tp. Hồ Chí Minh</p>
               </ListGroupItem>
               <ListGroupItem>
                 <h6 className="">
@@ -123,14 +123,14 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faPhone} />
                   </span>
                   
-                  Phone:
+                  Điện thoại:
                 </h6>
                 <p>0359680818</p>
               </ListGroupItem>
             </ListGroup>
           </Col>
           <Col lg='12' className=" text-center">
-            <p className="copyright">Copyright {year}, degisn and develop by Muhibur Raham. All right reserved.</p>
+            <p className="copyright"></p>
           </Col>
         </Row>
         

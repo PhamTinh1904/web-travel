@@ -1,18 +1,47 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Container } from "reactstrap";
+import React, {
+  useRef,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
+import { Container, Form, ListGroup } from "reactstrap";
 import { REACT_APP_BACKEND_URL } from "../utils/config";
 import useFetch from "../hooks/useFetch";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import TourCard from "../shared/TourCard/TourCard";
 import TripCard from "../shared/TripCard/TripCard";
+import RatingModal from "../components/Modal/RatingModal";
+import { Rating } from "@mui/material";
+
+import BasicModal from "../components/Modal/Modal";
+
+
 
 const Trips = () => {
+
   const { user, dispatch } = useContext(AuthContext);
+  const reviewMsgRef = useRef("");
+
   const [trips, setTrips] = useState([]);
   const [tours, setTours] = useState([]);
   const [apiCallFinished, setApiCallFinished] = useState(false);
+  
+ 
+ 
 
+ 
+
+  
+
+  // useEffect(() => {
+  //   setIsOpen(isOpen);
+  // }, [isOpen]);
+
+ 
+  
+ 
 
   const requestOptions = {
     method: "get",
@@ -27,24 +56,23 @@ const Trips = () => {
     axios(requestOptions)
       .then((response) => {
         setTrips(response.data.result.data); // Dữ liệu trả về từ API
-        console.log(trips)
+       
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
-
  
-
- 
+  
 
   return (
     <Container>
       <div className="">
-      {trips.map((trip, index)=>(
-        <TripCard key={index} trip={trip}/>
-      ))}
+        {trips.map((trip, index) => (
+          <TripCard key={index} trip={trip} />
+        ))}
       </div>
+      {/* <RatingModal isOpen={isOpen} disabled={false} body={body} /> */}
       
     </Container>
   );

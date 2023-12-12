@@ -8,10 +8,12 @@ const SearchResult = () => {
   const location = useLocation();
 
   const [tours] = useState(location.state);
+  console.log(tours);
 
   return (
     <>
       <CommonSection title={"Search Tours"} />
+
       <section>
         <Container>
           <Row>
@@ -19,7 +21,7 @@ const SearchResult = () => {
               <h4 className=" text-center">No tour found</h4>
             ) : (
               tours.map((tour) => (
-                <Col lg="3" key={tour._id}>
+                <Col lg="4" key={tour._id}>
                   <TourCard tour={tour} />
                 </Col>
               ))

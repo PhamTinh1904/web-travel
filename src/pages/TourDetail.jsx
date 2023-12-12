@@ -230,24 +230,6 @@ const ToursDetail = () => {
                       initialRating={TourRating}
                       onRatingChange={handleRatingChange}
                     />
-                    {/* <div className="flex items-center gap-3 mb-6 rating__group">
-                      <span onClick={() => setTourRating(1)}>
-                        1 <i className="ri-star-fill"></i>
-                      </span>
-                      <span onClick={() => setTourRating(2)}>
-                        2 <i className="ri-star-fill"></i>
-                      </span>
-                      <span onClick={() => setTourRating(3)}>
-                        3 <i className="ri-star-fill"></i>
-                      </span>
-                      <span onClick={() => setTourRating(4)}>
-                        4 <i className="ri-star-fill"></i>
-                      </span>
-                      <span onClick={() => setTourRating(5)}>
-                        5 <i className="ri-star-fill"></i>
-                      </span>
-                    </div> */}
-
                     <div className="review__input flex items-center relative">
                       <input
                         className="w-full p-3 rounded-full"

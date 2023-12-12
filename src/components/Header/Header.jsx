@@ -17,15 +17,15 @@ import { AuthContext } from "../../context/AuthContext";
 const navLinks = [
   {
     path: "/home",
-    display: "Home",
+    display: "Trang chủ",
   },
   {
     path: "about",
-    display: "About",
+    display: "Về chúng tôi",
   },
   {
     path: "/tours",
-    display: "Tours",
+    display: "Chuyến đi",
   },
 ];
 const Header = () => {

@@ -17,7 +17,7 @@ const FeaturedToursList = () => {
   return (
     <>
     {tours.map((tour)=>(
-        <Col lg='3' md='6' key={tour._id} className='mb-4'><TourCard tour={tour}/></Col>
+        <Col lg='4' md='6' key={tour._id} className='mb-4'><TourCard tour={tour}/></Col>
     ))}
     </>
   )

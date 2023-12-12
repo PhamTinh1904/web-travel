@@ -5,38 +5,42 @@ import { Button, Col, Form, FormGroup } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "../../axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const [searchResult, setSearchResult] = useState([]);
 
   const locationRef = useRef("");
-  const distanceRef = useRef(0);
+  const dayRef = useRef(0);
+  const nightRef = useRef(0);
   const maxGroupSizeRef = useRef(0);
 
   const searchHandler = async () => {
     const location = locationRef.current.value;
-    const distance = distanceRef.current.value;
+    const day = dayRef.current.value;
+    const night = nightRef.current.value;
     const maxGroupSize = maxGroupSizeRef.current.value;
 
-    if (location === "" || distance === 0 || maxGroupSize === 0) {
-      alert("Please select");
+    if (location === "" || day === 0 || night === 0 || maxGroupSize === 0) {
+     toast.error('Vui lòng nhập thông tin chuyến đi!')
       return;
     }
 
     await axios
       .get(
-        `/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`
+        `/tours/search/getTourBySearch?city=${location}&day=${day}&night=${night}&maxGroupSize=${maxGroupSize}`
       )
       .then((res) => {
         navigate(
-          `/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
+          `/tours/search?city=${location}&day=${day}&night=${night}&maxGroupSize=${maxGroupSize}`,
           { state: res.result.data }
+          
         );
       })
       .catch((err) => {
         navigate(
-          `/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
+          `/tours/search?city=${location}&day=${day}&night=${night}&maxGroupSize=${maxGroupSize}`
         );
       });
   };
@@ -50,10 +54,10 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faLocationDot} />
             </span>
             <div>
-              <p>Location</p>
+              <p>Địa điểm</p>
               <input
                 type="text"
-                placeholder="Where are going?"
+                placeholder="Bạn muốn đi đâu?"
                 ref={locationRef}
               />
             </div>
@@ -63,12 +67,17 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faLocationDot} />
             </span>
             <div>
-              <p>Distance</p>
-              <input
-                type="text"
-                placeholder="Distance k/m"
-                ref={distanceRef}
-              />
+              <p>Số ngày</p>
+              <input type="text" placeholder="0" ref={dayRef} />
+            </div>
+          </FormGroup>
+          <FormGroup className="form__group form__group-fast form__group-fast-mobile">
+            <span>
+              <FontAwesomeIcon icon={faLocationDot} />
+            </span>
+            <div>
+              <p>Số đêm</p>
+              <input type="text" placeholder="0 " ref={nightRef} />
             </div>
           </FormGroup>
           <FormGroup className="form__group">
@@ -76,12 +85,8 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faLocationDot} />
             </span>
             <div>
-              <p>Max people</p>
-              <input
-                type="text"
-                placeholder="0"
-                ref={maxGroupSizeRef}
-              />
+              <p>Số người</p>
+              <input type="text" placeholder="0" ref={maxGroupSizeRef} />
             </div>
           </FormGroup>
 

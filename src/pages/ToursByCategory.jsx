@@ -11,6 +11,7 @@ const ToursByCategory = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
 
+ 
   const {
     data: tours,
     loading,
@@ -40,14 +41,44 @@ const ToursByCategory = () => {
           />
         )}
         {!loading && !error && (
+          // <Row>
+          //   {tours.map((tour) => (
+          //     <Col lg="4" className=" mb-4" key={tour.id}>
+          //       <TourCard tour={tour} />
+          //     </Col>
+          //   ))}
+          //   <Col lg="12">
+          //     <div className="pagination flex items-center justify-center mt-4 gap-3">
+          //       {[...Array(pageCount).keys()].map((number) => (
+          //         <span
+          //           className={
+          //             page === number
+          //               ? "bg-secondaryy text-white w-8 h-8 rounded-full flex justify-center items-center border-1 border-secondaryy font-bold cursor-pointer"
+          //               : " w-8 h-8 rounded-full flex justify-center items-center border-1 border-secondaryy font-bold cursor-pointer"
+          //           }
+          //           key={number}
+          //           onClick={() => setPage(number)}
+          //         >
+          //           {number + 1}
+          //         </span>
+          //       ))}
+          //     </div>
+          //   </Col>
+          // </Row>
           <Row>
-            {tours.map((tour) => (
-              <Col lg="4" className=" mb-4" key={tour.id}>
-                <TourCard tour={tour} />
-              </Col>
-            ))}
-            <Col lg="12">
-              <div className="pagination flex items-center justify-center mt-4 gap-3">
+            {console.log(tourCount)}
+            {!tours | tourCount === 0 ? (
+              
+              <h4 className=" text-center">No tour found</h4>
+            ) : (
+              <>
+              {tours.map((tour) => (
+                <Col lg="4" className=" mb-4" key={tour.id}>
+                  <TourCard tour={tour} />
+                </Col>
+              ))}
+              <Col lg="12">
+               <div className="pagination flex items-center justify-center mt-4 gap-3">
                 {[...Array(pageCount).keys()].map((number) => (
                   <span
                     className={
@@ -55,14 +86,17 @@ const ToursByCategory = () => {
                         ? "bg-secondaryy text-white w-8 h-8 rounded-full flex justify-center items-center border-1 border-secondaryy font-bold cursor-pointer"
                         : " w-8 h-8 rounded-full flex justify-center items-center border-1 border-secondaryy font-bold cursor-pointer"
                     }
-                    key={number}
+                   key={number}
                     onClick={() => setPage(number)}
                   >
                     {number + 1}
                   </span>
                 ))}
               </div>
-            </Col>
+             </Col>
+
+             </>
+            )}
           </Row>
         )}
       </Container>

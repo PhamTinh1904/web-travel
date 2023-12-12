@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Layout from './components/Layout/Layout'
-
+import Layout from "./components/Layout/Layout";
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <Layout/>
+      <Layout />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

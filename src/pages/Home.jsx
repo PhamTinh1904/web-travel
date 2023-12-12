@@ -17,6 +17,7 @@ import NewsLetter from "../shared/NewsLetter/NewsLetter";
 import axios from "../axios";
 import ReactLoading from "react-loading";
 import MasonryImagesGallery2 from "../components/Img-gallery/MasonryImagesGallery2";
+import Invoice from "../components/SendMail";
 
 const Home = () => {
   const [tours, setTours] = useState([]);
@@ -65,7 +66,8 @@ const Home = () => {
                       <img className=" h-10" src={worldImg} alt="" />
                     </div>
                     <h1>
-                    Du lịch giúp mở ra  <span className="highlight"> cơ hội</span> và tạo ra những 
+                      Du lịch giúp mở ra{" "}
+                      <span className="highlight"> cơ hội</span> và tạo ra những
                       <span className="highlight"> kỷ niệm</span>
                     </h1>
                     <p className="leading-loose">
@@ -96,7 +98,7 @@ const Home = () => {
               <SearchBar />
             </div>
           </section>
-          <section id="services">
+          {/* <section id="services">
             <Container>
               <Row>
                 <Col lg="3" md="6" xs="12">
@@ -110,7 +112,7 @@ const Home = () => {
                 <ServiceList />
               </Row>
             </Container>
-          </section>
+          </section> */}
           <section id="featured__tour">
             <Container>
               <Subtitle subtitle={"Khám phá"} />
@@ -123,11 +125,11 @@ const Home = () => {
           <section id="experience">
             <Container>
               <Row>
-                <Col lg="6">
+                <Col lg="7">
                   <div className="experience__content">
-                    <Subtitle subtitle={"Experience"} />
+                    <Subtitle subtitle={"Kinh nghiệm"} />
                     <h2>
-                      With our all experience <br /> we will serve you
+                      Với những kinh nghiệm của chúng tôi <br /> chúng tôi sẽ cung cấp cho bạn dịch vụ tốt nhất
                     </h2>
                     <p className=" w-96 text-justify">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -151,7 +153,7 @@ const Home = () => {
                     </div>
                   </div>
                 </Col>
-                <Col lg="6">
+                <Col lg="5">
                   <div className="experience__img">
                     <img
                       className=" w-11/12 object-cover"
@@ -167,7 +169,10 @@ const Home = () => {
               <Row>
                 <Col lg="12">
                   <Subtitle subtitle={"Du lịch nội địa"} />
-                  <h2 className=" mb-4">Hãy đồng hành cùng chúng tôi để khám phá những địa điểm thú vị trên cả nước</h2>
+                  <h2 className=" mb-4">
+                    Hãy đồng hành cùng chúng tôi để khám phá những địa điểm thú
+                    vị trên cả nước
+                  </h2>
                 </Col>
                 <Col lg="12">
                   <MasonryImagesGallery />
@@ -180,7 +185,7 @@ const Home = () => {
               <Row>
                 <Col lg="12">
                   <Subtitle subtitle={"Du lịch nước ngoài"} />
-                  <h2 className=" mb-4">Visit our customers tours gallery</h2>
+                  <h2 className=" mb-4">Cùng chúng tôi khám phá thế giới</h2>
                 </Col>
                 <Col lg="12">
                   <MasonryImagesGallery2 />
@@ -201,6 +206,7 @@ const Home = () => {
             </Container>
           </section>
           <NewsLetter />
+          <Invoice/>
         </>
       )}
     </>
