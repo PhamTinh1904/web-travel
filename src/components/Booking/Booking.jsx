@@ -22,7 +22,8 @@ const Booking = ({ tour, avgRating }) => {
   const navigate = useNavigate();
 
   const [date, setDate] = useState(null);
-
+  const newDate = new Date()
+  const isoDate = zonedTimeToUtc(newDate, "UTC");
   const [booking, setBooking] = useState({
     userId: user && user._id,
     userEmail: user && user.email,
@@ -37,8 +38,9 @@ const Booking = ({ tour, avgRating }) => {
 
   const handleDateChange = (newValue) => {
     setDate(newValue);
-
-    const isoDate = zonedTimeToUtc(newValue, "UTC");
+    
+    
+    
     console.log(isoDate);
     setBooking((prev) => ({
       ...prev,
@@ -109,11 +111,11 @@ const Booking = ({ tour, avgRating }) => {
         </span>
       </div>
 
-      <h3 className="py-6">Infomation</h3>
+      <h3 className="py-6">Thông tin</h3>
       <forms className="border-[1px] p-6 flex flex-col gap-3">
         <input
           className=" outline-none p-2 border-b-gray-300 border-b-[1px] border-solid w-full"
-          placeholder="Full Name"
+          placeholder="Họ tên"
           id="fullName"
           {...register("fullName", { required: true })}
           onChange={handleChange}
@@ -124,7 +126,7 @@ const Booking = ({ tour, avgRating }) => {
 
         <input
           className=" outline-none p-2 border-b-gray-300 border-b-[1px] border-solid w-full"
-          placeholder="Enter your phone"
+          placeholder="Nhập số điện thoại"
           id="phone"
           {...register("phone", { required: true })}
           onChange={handleChange}
@@ -157,7 +159,7 @@ const Booking = ({ tour, avgRating }) => {
               <span>{formattedPrice(price * 0.3 * booking.guestChild)}</span>
             </ListGroupItem>
             <ListGroupItem className="border-0 px-0">
-              <h5>Service change</h5>
+              <h5>Chi phí khác</h5>
               <span>$10</span>
             </ListGroupItem>
             <ListGroupItem className="border-0 px-0 total">
@@ -165,7 +167,7 @@ const Booking = ({ tour, avgRating }) => {
               <span>{formattedPrice(totalAmount)}</span>
             </ListGroupItem>
           </ListGroup>
-          <CalendarBooking initalDate={date} onChangeDate={handleDateChange} />
+          {/* <CalendarBooking initalDate={date} onChangeDate={handleDateChange} /> */}
 
           <button
             className="btn primary__btn w-full text-white mt-4"

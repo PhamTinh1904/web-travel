@@ -71,10 +71,8 @@ const Home = () => {
                       <span className="highlight"> kỷ niệm</span>
                     </h1>
                     <p className="leading-loose">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Dicta amet velit voluptate provident quo minus corrupti,
-                      eveniet, sunt ipsam quos corporis nihil aperiam explicabo
-                      nam saepe quaerat alias eius et.
+                      Khám phá thế giới và tạo dấu ấn không thể quên: Du lịch -
+                      Khám phá, Trải nghiệm và Ghi lại những Kỷ niệm đáng nhớ
                     </p>
                   </div>
                 </Col>
@@ -129,13 +127,16 @@ const Home = () => {
                   <div className="experience__content">
                     <Subtitle subtitle={"Kinh nghiệm"} />
                     <h2>
-                      Với những kinh nghiệm của chúng tôi <br /> chúng tôi sẽ cung cấp cho bạn dịch vụ tốt nhất
+                      Với những kinh nghiệm của chúng tôi <br /> chúng tôi sẽ
+                      cung cấp cho bạn dịch vụ tốt nhất
                     </h2>
                     <p className=" w-96 text-justify">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ea ad veniam quis, officia reiciendis atque quam nostrum
-                      vero corrupti ullam iure distinctio, delectus suscipit
-                      cumque eaque libero sint illo pariatur.
+                      Đội ngũ của chúng tôi là những chuyên gia du lịch giàu
+                      kinh nghiệm, luôn sẵn sàng lắng nghe và tư vấn cho bạn
+                      những chuyến đi hoàn hảo, phù hợp với mong muốn và sở
+                      thích cá nhân. Chúng tôi không chỉ đảm bảo cho bạn một
+                      lịch trình tuyệt vời, mà còn xem trách nhiệm và sự chăm
+                      sóc khách hàng là ưu tiên hàng đầu.
                     </p>
                   </div>
                   <div className="counter__wrapper pt-4 flex items-center justify-around gap-5">
@@ -206,7 +207,7 @@ const Home = () => {
             </Container>
           </section>
           <NewsLetter />
-          <Invoice/>
+          <Invoice />
         </>
       )}
     </>

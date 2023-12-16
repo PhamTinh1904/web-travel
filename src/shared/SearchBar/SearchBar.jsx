@@ -18,7 +18,10 @@ const SearchBar = () => {
 
   const searchHandler = async () => {
     const location = locationRef.current.value;
+    console.log(typeof location)
     const day = dayRef.current.value;
+    console.log(typeof  day)
+
     const night = nightRef.current.value;
     const maxGroupSize = maxGroupSizeRef.current.value;
 
@@ -29,7 +32,7 @@ const SearchBar = () => {
 
     await axios
       .get(
-        `/tours/search/getTourBySearch?city=${location}&day=${day}&night=${night}&maxGroupSize=${maxGroupSize}`
+        `/tours/search/getTourBySearch?city=${location}&day=${parseInt(day)}&night=${parseInt(night)}&maxGroupSize=${parseInt(maxGroupSize)}`
       )
       .then((res) => {
         navigate(

@@ -12,7 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const TripCard = ({ trip }) => {
-  const { tourId, tourName, fullName, guestSize, guestChild, pay1, pay2 } =
+  const { tourId, tourName,bookAt, fullName, guestSize, guestChild, pay1, pay2 } =
     trip;
   const { user, dispatch } = useContext(AuthContext);
   const [tour, setTour] = useState([]);
@@ -20,7 +20,7 @@ const TripCard = ({ trip }) => {
 
   const [pay1Success, setPay1Success] = useState(true);
   const [pay2Success, setPay2Success] = useState(pay2);
-  const [statusTour, setStatusTour] = useState(true);
+  const [statusTour, setStatusTour] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [TourRating, setTourRating] = useState(0);
   const [reviewText, setReviewText] = useState("");
@@ -30,6 +30,12 @@ const TripCard = ({ trip }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  useEffect(()=>{
+    if(pay1 && pay2){
+      setStatusTour(true)
+    }
+  }, [pay1, pay2])
+
 
   const handleClose = () => {
     setIsOpen(false);
@@ -251,24 +257,24 @@ const TripCard = ({ trip }) => {
         <p className="mb-4 text-xl font-bold text-secondaryy">
           Thanh toán lần 1
         </p>
-        {pay1Success ? (
+        {pay1 ? (
           <h5 className="mt-[80px] text-center p-2 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
             Đã thanh toán
           </h5>
         ) : (
-          <h5>Đang thanh toán</h5>
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">Đang thanh toán</h5>
         )}
       </div>
       <div className="col-lg-2 lg:border-y-[1px] lg:border-r-[1px] border-x-[1px] border-b-[1px]">
         <p className="mb-4 text-xl font-bold text-secondaryy">
           Thanh toán lần 2
         </p>
-        {pay1Success ? (
+        {pay2 ? (
           <h5 className="text-center mt-[80px] p-2 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
             Đã thanh toán
           </h5>
         ) : (
-          <h5>Đang thanh toán</h5>
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">Đang thanh toán</h5>
         )}
       </div>
       <div className="col-lg-2 lg:border-y-[1px] lg:border-r-[1px] border-x-[1px] border-b-[1px]">
@@ -281,8 +287,8 @@ const TripCard = ({ trip }) => {
             Hoàn thành
           </h5>
         ) : (
-          <h5 className="text-center mt-[0px] p-2 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
-            Đang đi
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">
+            Đang đi...
           </h5>
         )}
       </div>

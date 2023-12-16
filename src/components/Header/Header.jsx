@@ -9,7 +9,7 @@ import "./Header.scss";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Button, Container, Row } from "reactstrap";
 
-import logo from "../../assets/tour-images/logo.png";
+import logo from "../../assets/tour-images/logo2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
@@ -76,7 +76,7 @@ const Header = () => {
             }}
           >
             <img
-              className=" h-1/5 w-1/2 lg:w-full lg:max-h-16 min-h-20"
+              className=" h-1/5 w-1/2 lg:w-[100px] lg:max-h-16 min-h-20"
               src={logo}
             />
           </div>
@@ -107,7 +107,7 @@ const Header = () => {
                   >
                     <img
                       className="mr-2 w-10 rounded-full"
-                      src="https://antimatter.vn/wp-content/uploads/2022/12/anh-avatar-facebook-vo-danh-avt-fb-cho-nu-1.jpg"
+                      src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
                     />
                     {isOpen && (
                       <ul className="user__menu absolute left-0 pl-0 mt-2 bg-white shadow-md">

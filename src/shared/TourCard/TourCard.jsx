@@ -28,7 +28,7 @@ const TourCard = ({ tour }) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img relative">
-          <img src={`https://res.cloudinary.com/dmjyrnybv/image/upload/v1694162206/tbmobhvclhpvys76lc8y.jpg`} alt="" />
+          <img className=" h-[280px]" src={`${photo}`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
               Featured
