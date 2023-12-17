@@ -52,7 +52,7 @@ const TourCard = ({ tour }) => {
             {totalRating === 0 ? "Not rated" : <span>({reviews.length})</span>}
           </span>
         </div>
-        <h5 className="tour__title mb-2">
+        <h5 className="tour__title mb-2 h-[54px]">
           <Link to={`/tour/${_id}`} className=" text-lg">
             {title}
           </Link>
