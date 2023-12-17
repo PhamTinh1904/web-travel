@@ -224,13 +224,13 @@ const ToursDetail = () => {
                 <ScheduleTour schedules={lichtrinh} />
 
                 <div className="tour__reviews mt-16 border-1 border-colorText p-10 rounded-lg">
-                  <h4>Reviews ( {reviews.length} reviews)</h4>
+                  <h4>Đánh giá ( {reviews.length} đánh giá)</h4>
                   <Form onSubmit={submitHandler}>
-                    <RatingReviews
+                    {/* <RatingReviews
                       initialRating={TourRating}
                       onRatingChange={handleRatingChange}
-                    />
-                    <div className="review__input flex items-center relative">
+                    /> */}
+                    {/* <div className="review__input flex items-center relative">
                       <input
                         className="w-full p-3 rounded-full"
                         type="text"
@@ -244,7 +244,7 @@ const ToursDetail = () => {
                       >
                         Submit
                       </button>
-                    </div>
+                    </div> */}
                   </Form>
 
                   <ListGroup className="user__reviews mt-10">

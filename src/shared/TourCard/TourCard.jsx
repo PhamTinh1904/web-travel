@@ -31,7 +31,7 @@ const TourCard = ({ tour }) => {
           <img className=" h-[280px]" src={`${photo}`} alt="" />
           {featured && (
             <span className=" absolute right-0 bottom-0 p-1 text-white text-base">
-              Featured
+              Nổi bật
             </span>
           )}
         </div>
@@ -92,7 +92,7 @@ const TourCard = ({ tour }) => {
             <span className=" text-sm text-slate-950"> /người</span>
           </h5>
           <button className="booking__btn">
-            <Link to={`/tour/${_id}`}>Book Now</Link>
+            <Link to={`/tour/${_id}`}>Đặt ngay</Link>
           </button>
         </div>
       </CardBody>

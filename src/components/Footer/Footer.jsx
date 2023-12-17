@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.scss";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-import logo from "../../assets/tour-images/logo.png";
+import logo from "../../assets/tour-images/logo2.jpg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -24,15 +24,15 @@ const quickLinks = [
 const discover = [
   {
     path: "/home",
-    display: "Home",
+    display: "Trang chủ",
   },
   {
     path: "about",
-    display: "About",
+    display: "Về chúng tôi",
   },
   {
     path: "/tours",
-    display: "Tours",
+    display: "Chuyến đi",
   },
 ];
 
@@ -45,11 +45,10 @@ const Footer = () => {
         <Row>
           <Col lg="3">
             <div className="log">
-              <img className=" w-1/2" src={logo} alt="" />
+              <img className=" w-[100px]" src={logo} alt="" />
             </div>
             <p className=" text-justify py-3 m-0">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
-              nihil repudiandae consequuntur.
+              Kết nối với chúng tôi.
             </p>
 
             <ul className="social__links flex items-center pt-2 gap-4 p-0">

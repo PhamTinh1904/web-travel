@@ -160,7 +160,7 @@ const Booking = ({ tour, avgRating }) => {
             </ListGroupItem>
             <ListGroupItem className="border-0 px-0">
               <h5>Chi phí khác</h5>
-              <span>$10</span>
+              <span>{formattedPrice(totalAmount * 0.1)}</span>
             </ListGroupItem>
             <ListGroupItem className="border-0 px-0 total">
               <h5>Tổng tiền</h5>
@@ -173,7 +173,7 @@ const Booking = ({ tour, avgRating }) => {
             className="btn primary__btn w-full text-white mt-4"
             onClick={handleClick}
           >
-            Book Now
+            Đặt ngay
           </button>
         </div>
       </forms>

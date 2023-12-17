@@ -12,8 +12,16 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const TripCard = ({ trip }) => {
-  const { tourId, tourName,bookAt, fullName, guestSize, guestChild, pay1, pay2 } =
-    trip;
+  const {
+    tourId,
+    tourName,
+    bookAt,
+    fullName,
+    guestSize,
+    guestChild,
+    pay1,
+    pay2,
+  } = trip;
   const { user, dispatch } = useContext(AuthContext);
   const [tour, setTour] = useState([]);
   const [apiCallFinished, setApiCallFinished] = useState(false);
@@ -24,18 +32,18 @@ const TripCard = ({ trip }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [TourRating, setTourRating] = useState(0);
   const [reviewText, setReviewText] = useState("");
+  const [reviewStatus, setReviewStatus] = useState(false);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  useEffect(()=>{
-    if(pay1 && pay2){
-      setStatusTour(true)
+  useEffect(() => {
+    if (pay1 && pay2) {
+      setStatusTour(true);
     }
-  }, [pay1, pay2])
-
+  }, [pay1, pay2]);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -71,8 +79,11 @@ const TripCard = ({ trip }) => {
         rating: TourRating,
       };
       const res = await axios.post(`/review/${tourId}`, reviewObj);
-      navigate(0);
-    } catch (error) {
+      if (res) {
+        await axios.post(`/booking/delete/${tourId}`);
+      }
+      navigate(`/tour/${tourId}`);
+    } catch (error) { 
       alert(error.message);
     }
   };
@@ -95,32 +106,34 @@ const TripCard = ({ trip }) => {
   const priceChil = price * 0.3;
 
   const body = (
-    <div className="tour__reviews mt-16 border-1 border-colorText p-10 rounded-lg">
-      <Form onSubmit={submitHandler}>
-        <RatingReviews
-          initialRating={TourRating}
-          onRatingChange={handleRatingChange}
-        />
-        <div className="review__input flex items-center relative">
-          <input
-            className="w-full p-3 rounded-full"
-            type="text"
-            id="reviewText"
-            {...register("reviewText", { required: true })}
-            onChange={handleChange}
-            placeholder="share your thoughts"
-            required
+    <>
+      <h5>Bạn hãy cho chúng tôi biết cảm nhận của bạn về chuyến đi này!!</h5>
+      <div className="tour__reviews mt-8 border-1 border-colorText p-10 rounded-lg">
+        <Form onSubmit={submitHandler}>
+          <RatingReviews
+            initialRating={TourRating}
+            onRatingChange={handleRatingChange}
           />
-          <button
-            className="primary__btn absolute right-0 top-1/2 -translate-y-1/2 mr-3 text-white"
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </Form>
+          <div className="review__input flex items-center relative">
+            <input
+              className="w-full p-3 rounded-full"
+              type="text"
+              id="reviewText"
+              {...register("reviewText", { required: true })}
+              onChange={handleChange}
+              placeholder="Chia sẽ cảm nhận của bạn"
+              required
+            />
+            <button
+              className="primary__btn absolute right-0 top-1/2 -translate-y-1/2 mr-3 text-white"
+              type="submit"
+            >
+              Đăng
+            </button>
+          </div>
+        </Form>
 
-      {/* <ListGroup className="user__reviews mt-10">
+        {/* <ListGroup className="user__reviews mt-10">
       {reviews?.map((review) => (
         <div className="review__item flex items-start gap-x-4 mb-8">
           <img
@@ -151,7 +164,8 @@ const TripCard = ({ trip }) => {
         </div>
       ))}
     </ListGroup> */}
-    </div>
+      </div>
+    </>
   );
 
   return (
@@ -262,7 +276,9 @@ const TripCard = ({ trip }) => {
             Đã thanh toán
           </h5>
         ) : (
-          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">Đang thanh toán</h5>
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">
+            Đang thanh toán
+          </h5>
         )}
       </div>
       <div className="col-lg-2 lg:border-y-[1px] lg:border-r-[1px] border-x-[1px] border-b-[1px]">
@@ -274,7 +290,9 @@ const TripCard = ({ trip }) => {
             Đã thanh toán
           </h5>
         ) : (
-          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">Đang thanh toán</h5>
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">
+            Đang thanh toán
+          </h5>
         )}
       </div>
       <div className="col-lg-2 lg:border-y-[1px] lg:border-r-[1px] border-x-[1px] border-b-[1px]">
@@ -282,9 +300,13 @@ const TripCard = ({ trip }) => {
         {statusTour ? (
           <h5
             onClick={handleOpen}
-            className=" cursor-pointer text-center mt-[80px] p-2 text-sm text-green-800 rounded-lg bg-yellow-400 dark:bg-gray-800 dark:text-green-400"
+            className="cursor-pointer text-center mt-[80px] p-2 text-sm text-green-800 rounded-lg bg-yellow-400 dark:bg-gray-800 dark:text-green-400"
           >
             Hoàn thành
+          </h5>
+        ) : reviewStatus && statusTour ? (
+          <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">
+            Đã đánh giá
           </h5>
         ) : (
           <h5 className="text-center mt-[80px] p-2 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-green-400">

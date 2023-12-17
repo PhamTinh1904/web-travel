@@ -181,7 +181,7 @@ const Home = () => {
               </Row>
             </Container>
           </section>
-          <section id="gallery">
+          {/* <section id="gallery">
             <Container>
               <Row>
                 <Col lg="12">
@@ -193,7 +193,7 @@ const Home = () => {
                 </Col>
               </Row>
             </Container>
-          </section>
+          </section> */}
           <section id="testimonial">
             <Container>
               <Row>
@@ -207,7 +207,7 @@ const Home = () => {
             </Container>
           </section>
           <NewsLetter />
-          <Invoice />
+          
         </>
       )}
     </>

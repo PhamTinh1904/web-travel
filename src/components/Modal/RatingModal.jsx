@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 const RatingModal = ({ body, disabled, isOpen }) => {
- 
-const [showModal, setShowModal] = useState(isOpen)
-  
+  const [showModal, setShowModal] = useState(isOpen);
 
   const handleClose = useCallback(() => {
     if (disabled) {
@@ -43,8 +41,14 @@ const [showModal, setShowModal] = useState(isOpen)
                 <FontAwesomeIcon icon={faClose} />
               </button>
             </div>
+
             {/* Body */}
-            <div className="relative p-6 flex-auto">{body}</div>
+            <div className="relative p-6 flex-auto">
+              <h5>
+                Hãy cho chúng tôi cảm nhận trải nghiệm của bạn về chuyến đi
+              </h5>
+              {body}
+            </div>
             {/* Footer */}
             {/* <div className="relative p-6 flex-auto">
           <div className="flex items-center gap-4 w-full">

@@ -54,7 +54,7 @@ const Login = () => {
                 <div className="user__img w-20 h-20 absolute">
                   <img className=" w-full" src={userIcon} alt="" />
                 </div>
-                <h2 className=" font-medium text-center mb-3 text-white">Login</h2>
+                <h2 className=" font-medium text-center mb-3 text-white">Đăng nhập</h2>
                 <Form onSubmit={handleClick}>
                   <FormGroup>
                     <input
@@ -62,7 +62,7 @@ const Login = () => {
                       id="email"
                       name="email"
                       required
-                      placeholder="Enter your email"
+                      placeholder="Nhập email của bạn"
                       onChange={handleChange}
                     />
                   </FormGroup>
@@ -72,7 +72,7 @@ const Login = () => {
                       id="password"
                       name="password"
                       required
-                      placeholder="Enter your password"
+                      placeholder="Nhập mật khẩu của bạn"
                       onChange={handleChange}
                     />
                   </FormGroup>

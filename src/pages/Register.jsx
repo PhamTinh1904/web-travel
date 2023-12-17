@@ -59,7 +59,7 @@ const Register = () => {
                   <img className=" w-full" src={userIcon} alt="" />
                 </div>
                 <h2 className=" font-medium text-center mb-3 text-white">
-                  Register
+                  Đăng ký
                 </h2>
                 <Form onSubmit={handleClick}>
                   <FormGroup>
@@ -68,7 +68,7 @@ const Register = () => {
                       id="userName"
                       name="userName"
                       required
-                      placeholder="Enter your Username"
+                      placeholder="Nhập tên người dùng của bạn"
                       onChange={handleChange}
                     />
                   </FormGroup>
@@ -78,7 +78,7 @@ const Register = () => {
                       id="email"
                       name="email"
                       required
-                      placeholder="Enter your email"
+                      placeholder="Nhập email của bạn"
                       onChange={handleChange}
                     />
                   </FormGroup>
@@ -88,7 +88,7 @@ const Register = () => {
                       id="password"
                       name="password"
                       required
-                      placeholder="Enter your password"
+                      placeholder="Nhập mật khẩu của bạn"
                       onChange={handleChange}
                     />
                   </FormGroup>

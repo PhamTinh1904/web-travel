@@ -12,13 +12,13 @@ const SearchResult = () => {
 
   return (
     <>
-      <CommonSection title={"Search Tours"} />
+      <CommonSection title={"Tìm kiếm tours"} />
 
       <section>
         <Container>
           <Row>
             {!tours ? (
-              <h4 className=" text-center">No tour found</h4>
+              <h4 className=" text-center">Không tìm thấy tour</h4>
             ) : (
               tours.map((tour) => (
                 <Col lg="4" key={tour._id}>

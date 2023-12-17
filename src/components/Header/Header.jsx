@@ -20,7 +20,7 @@ const navLinks = [
     display: "Trang chủ",
   },
   {
-    path: "about",
+    path: "/about",
     display: "Về chúng tôi",
   },
   {
@@ -115,16 +115,16 @@ const Header = () => {
                         <li>
                           <Link to={'/trips'}>Kì nghĩ của tôi</Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link>Cập nhật thông tin</Link>
-                        </li>
+                        </li> */}
                         <li>
                           <Link>Cài đặt</Link>
                         </li>
                         <li>
                           {" "}
                           <Button className="btn btn-dark" onClick={logout}>
-                            Logout
+                            Đăng xuất
                           </Button>
                         </li>
                       </ul>
@@ -135,10 +135,10 @@ const Header = () => {
                 <>
                   {" "}
                   <Button className="btn secondary__btn">
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Đăng nhập</Link>
                   </Button>
                   <Button className="primary__btn">
-                    <Link to="/register">Register</Link>
+                    <Link to="/register">Đăng ký</Link>
                   </Button>
                 </>
               )}
