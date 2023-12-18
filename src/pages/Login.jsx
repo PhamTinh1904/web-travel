@@ -77,11 +77,11 @@ const Login = () => {
                     />
                   </FormGroup>
                   <Button className="auth__btn" type="submit">
-                    Login
+                    Đăng nhập
                   </Button>
                 </Form>
                 <p className=" text-sm text-white mt-6">
-                  Don't have an account? <Link className=" no-underline text-gray-500 ml-1 font-medium" to="/register">Create</Link>
+                  Bạn chưa có tài khoản? <Link className=" no-underline text-gray-500 ml-1 font-medium" to="/register">Tạo</Link>
                 </p>
               </div>
             </div>

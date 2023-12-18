@@ -94,16 +94,16 @@ const Register = () => {
                   </FormGroup>
 
                   <Button className="auth__btn" type="submit">
-                    Create Account
+                    Tạo tài khoản
                   </Button>
                 </Form>
                 <p className=" text-sm text-white mt-6">
-                  Have an account?{" "}
+                  Bạn đã có tài khoản?{" "}
                   <Link
                     className=" no-underline text-gray-500 ml-1 font-medium"
                     to="/login"
                   >
-                    Login
+                    Đăng nhập
                   </Link>
                 </p>
               </div>
